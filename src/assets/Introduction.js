@@ -6,7 +6,7 @@ function Introduction() {
             <p>
                 As a ChatGPT-Plus subscriber, it can be challenging to track your usage quota. This
                 'request timeline' widget demonstrates a simple way to represent your recent usage
-                visibly on a timeline.
+                visually on a timeline.
             </p>
             <p>
                 Using the quota of 25 requests in 3 hours (as of March 26, 2023) as an example, the
@@ -17,6 +17,15 @@ function Introduction() {
             <p>
                 The circles representing the requests will change color from translucent green to
                 opaque red as you approach the quota, making it easy to gauge your usage.
+            </p>
+            <p>
+                See the repository at{' '}
+                <a
+                    href="https://github.com/gebbber/gpt4-widget"
+                    className="text-teal-700 underline font-medium">
+                    https://github.com/gebbber/gpt4-widget
+                </a>
+                .
             </p>
         </Section>
     );

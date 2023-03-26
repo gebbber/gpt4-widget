@@ -5,7 +5,7 @@ import AdjustSettings from './Widget/AdjustSettings';
 
 import { AddWidgetDataContext } from './Widget/useWidgetData';
 import Main from './Layout/MainContainer';
-import Header from './Header';
+import Header from './assets/Header';
 
 export default function App() {
     return (
@@ -13,7 +13,7 @@ export default function App() {
             <AddWidgetDataContext>
                 <div className="h-screen flex flex-col justify-between w-full">
                     <div className="overflow-y-scroll grow-1">
-                        <div className="w-full md:max-w-2xl mx-auto flex flex-col gap-4 py-2 ">
+                        <div className="w-full md:max-w-2xl mx-auto flex flex-col gap-4 py-2">
                             <Header />
                             <Instructions />
                             <AdjustSettings />

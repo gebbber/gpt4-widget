@@ -3,8 +3,8 @@ import SubmitButton from './SubmitButton';
 
 function TextInputForm() {
     return (
-        <form className="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-3xl">
-            <div className="relative flex h-full flex-1 md:flex-col">
+        <form className="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-3xl ">
+            <div className="relative flex h-full flex-1 md:flex-col ">
                 <div className="flex ml-1 md:w-full md:m-auto md:mb-2 gap-0 md:gap-2 justify-center"></div>
                 <div className="flex flex-col w-full py-2 flex-grow md:py-3 md:pl-4 relative border border-black/10 bg-white dark:border-gray-900/50 dark:text-white dark:bg-gray-700 rounded-md shadow-[0_0_10px_rgba(0,0,0,0.10)] dark:shadow-[0_0_15px_rgba(0,0,0,0.10)]">
                     <textarea
@@ -17,6 +17,7 @@ function TextInputForm() {
                             height: '24px',
                             overflowY: 'hidden',
                         }}></textarea>
+
                     <SubmitButton />
                 </div>
                 <Widget />
