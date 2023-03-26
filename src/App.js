@@ -1,5 +1,5 @@
 import TextInputForm from './Layout/TextInputForm';
-import Instructions from './Introduction';
+import Instructions from './assets/Introduction';
 import RequestsList from './Widget/RequestsList';
 import AdjustSettings from './Widget/AdjustSettings';
 
