@@ -12,4 +12,4 @@ or by adding new ones&mdash;just hit the 'submit' button.
 The circles representing the requests will change color from translucent green to
 opaque red as you approach the quota, making it easy to gauge your usage.
 
-Live demo at <https://widget.gebrandon.com>.
+Live demo at <https://gpt4widget.gebrandon.com>.
