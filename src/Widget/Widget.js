@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import useWidgetData from './useWidgetData';
 
 function Widget() {
-    const { requests, timeLimit } = useWidgetData();
+    const { requests, timeLimit, requestLimit } = useWidgetData();
     const [inScopeRequests, setISR] = useState([]);
     const timelineRef = useRef(null);
 
@@ -37,9 +37,15 @@ function Widget() {
     const markerColor = useMarkerColor(inScopeRequests.length);
 
     return (
-        <TimeLine tlRef={timelineRef}>
-            <RequestMarkers requests={inScopeRequests} color={markerColor} />
-        </TimeLine>
+        <div className="flex flex-row gap-1 w-full justify-between items-center">
+            <div className="grow-0 text-xs opacity-30">{timeLimit}h</div>
+            <TimeLine tlRef={timelineRef}>
+                <RequestMarkers requests={inScopeRequests} color={markerColor} />
+            </TimeLine>
+            <div className="grow-0 text-xs opacity-30">
+                {inScopeRequests.length}/{requestLimit}
+            </div>
+        </div>
     );
 }
 
@@ -62,16 +68,14 @@ function useMarkerColor(numRequests) {
         const a = positiveColor.a + fraction * dA;
 
         return { r, g, b, a };
-    }, [positiveColor, negativeColor, numRequests]);
+    }, [positiveColor, negativeColor, numRequests, requestLimit]);
 
     return markerColor;
 }
 
 function TimeLine({ tlRef, children }) {
     return (
-        <div
-            className="group absolute -top-2 translate-y-1/2 inset-x-0 border-l border-r dark:border-white/20 h-2"
-            ref={tlRef}>
+        <div className="flex-1 h-2 relative border-l border-r dark:border-white/20" ref={tlRef}>
             <div className="absolute top-1/2 border-t inset-x-0"></div>
             <div>{children}</div>
         </div>
@@ -95,20 +99,12 @@ function RequestMarker({ xLocation, i, color }) {
         'absolute top-1/2 -translate-y-1/2 -translate-x-1/2',
         'w-3 h-3 rounded-full',
     ].join(' ');
-    const labelStyle = { left: xLocation };
+
     const dotStyle = { left: xLocation, backgroundColor: rgba(color) };
 
     return (
         <div className="text-xs">
-            <div className={classes} style={dotStyle}>
-                {i ? (
-                    <div
-                        className="absolute top-1/2 left-0 -translate-y-1/2 translate-x-[-110%] opacity-50"
-                        style={labelStyle}>
-                        {i}
-                    </div>
-                ) : null}
-            </div>
+            <div className={classes} style={dotStyle}></div>
         </div>
     );
 }

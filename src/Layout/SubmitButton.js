@@ -1,6 +1,6 @@
 import useWidgetData from '../Widget/useWidgetData';
 
-function SubmitButton({}) {
+function SubmitButton() {
     const { makeNewRequest } = useWidgetData();
 
     return (

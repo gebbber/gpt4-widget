@@ -1,17 +1,17 @@
 import Section from '../Layout/Section';
-import useWidgetData from './useWidgetData';
+// import useWidgetData from './useWidgetData';
 
 function AdjustSettings() {
-    const {
-        timeLimit,
-        setTimeLimit,
-        requestLimit,
-        setRequestLimit,
-        positiveColor,
-        setPositiveColor,
-        negativeColor,
-        setNegativeColor,
-    } = useWidgetData();
+    // const {
+    //     timeLimit,
+    //     setTimeLimit,
+    //     requestLimit,
+    //     setRequestLimit,
+    //     positiveColor,
+    //     setPositiveColor,
+    //     negativeColor,
+    //     setNegativeColor,
+    // } = useWidgetData();
 
     return (
         <Section title="Settings" className="opacity-50">
