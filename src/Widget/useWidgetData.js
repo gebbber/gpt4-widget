@@ -28,9 +28,12 @@ export function AddWidgetDataContext({ children }) {
         setPositiveColor,
         negativeColor,
         setNegativeColor,
+        filterRequests: function () {
+            setRequests(requests => filterRequests(requests));
+        },
         makeNewRequest: function () {
             setRequests(requests => {
-                return [...requests, { time: new Date() }];
+                return [...filterRequests(requests), { time: new Date() }];
             });
         },
         clearRequest: function (requestTime) {
@@ -44,6 +47,13 @@ export function AddWidgetDataContext({ children }) {
     };
 
     return <WidgetDataContext.Provider value={value}>{children}</WidgetDataContext.Provider>;
+
+    function filterRequests(requests) {
+        const minTime = new Date().valueOf() - timeLimit * 3600000;
+        return requests
+            .filter(request => request.time.valueOf() > minTime)
+            .sort((a, b) => a.time.valueOf() - b.time.valueOf());
+    }
 }
 
 export default function useWidgetData() {

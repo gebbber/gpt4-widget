@@ -13,6 +13,7 @@ for (let n = 0; n < Math.max(0, requestLimit - 3); n++) {
     });
 }
 
+requests.push({ time: new Date(now - timeLimit * 3600000 + 15000) });
 const sorted = requests.sort((a, b) => a.time - b.time);
 
 const positiveColor = { r: 0, g: 255, b: 0, a: 0.5 };
