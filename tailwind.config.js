@@ -2,12 +2,12 @@
 module.exports = {
     content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
     theme: {
-        fontFamily: {
-            title: ['EB Garamond', 'serif'],
-            heading: ['Noto Serif', 'serif'],
-            copy: ['Noto Sans', 'sans-serif'],
-        },
         extend: {
+            fontFamily: {
+                title: ['EB Garamond', 'serif'],
+                heading: ['Noto Serif', 'serif'],
+                copy: ['Noto Sans', 'sans-serif'],
+            },
             colors: { amber: { 950: 'rgb(60 26 8)' } },
 
             keyframes: {

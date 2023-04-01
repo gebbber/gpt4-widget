@@ -18,6 +18,7 @@ function Introduction() {
                 The circles representing the requests will change color from translucent green to
                 opaque red as you approach the quota, making it easy to gauge your usage.
             </p>
+
             <p>
                 See the repository at{' '}
                 <a

@@ -21,6 +21,8 @@ function Widget() {
         function filterRequests() {
             const minTime = new Date().valueOf() - timeLimit * 3600000;
             setISR(() => {
+                console.log('re-rendering');
+                console.log((timeLimit * 3600000) / width);
                 return requests
                     .filter(request => request.time.valueOf() > minTime)
                     .sort((a, b) => a.time.valueOf() - b.time.valueOf())
