@@ -13,8 +13,12 @@ function RequestsList() {
                 button below to add new requests:
             </p>
             <ul className="flex flex-col gap-1">
-                {requests.map(request => (
-                    <RequestItem key={request.time.valueOf()} time={request.time} />
+                {requests.map((request, i) => (
+                    <RequestItem
+                        key={request.time.valueOf()}
+                        time={request.time}
+                        showCount={i === 0}
+                    />
                 ))}
             </ul>
         </Section>
