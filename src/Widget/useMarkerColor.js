@@ -1,28 +1,27 @@
 import { useMemo } from 'react';
-import useWidgetData from './useWidgetData';
+import { REQUEST_LIMIT, useColors } from './widget-settings';
 
 export default function useMarkerColor(numRequests) {
-    const { positiveColor, negativeColor, requestLimit } = useWidgetData();
+    const [positiveColor, negativeColor] = useColors();
 
     const markerColor = useMemo(() => {
-        const fraction = Math.min(1, Math.max(0, numRequests / requestLimit));
+        const positive = { ...positiveColor, a: positiveColor.a ?? 1 };
+        const negative = { ...negativeColor, a: negativeColor.a ?? 1 };
 
-        const dR = negativeColor.r - positiveColor.r;
-        const dG = negativeColor.g - positiveColor.g;
-        const dB = negativeColor.b - positiveColor.b;
-        const dA = negativeColor.a - positiveColor.a;
+        const fraction = Math.min(1, Math.max(0, numRequests / REQUEST_LIMIT));
 
-        const r = Math.round(positiveColor.r + fraction * dR);
-        const g = Math.round(positiveColor.g + fraction * dG);
-        const b = Math.round(positiveColor.b + fraction * dB);
-        const a = positiveColor.a + fraction * dA;
+        const dR = negative.r - positive.r;
+        const dG = negative.g - positive.g;
+        const dB = negative.b - positive.b;
+        const dA = negative.a - positive.a;
 
-        return { r, g, b, a };
-    }, [positiveColor, negativeColor, numRequests, requestLimit]);
+        const r = Math.round(positive.r + fraction * dR);
+        const g = Math.round(positive.g + fraction * dG);
+        const b = Math.round(positive.b + fraction * dB);
+        const a = positive.a + fraction * dA;
+
+        return `rgba(${r},${g},${b},${a})`;
+    }, [numRequests, positiveColor, negativeColor]);
 
     return markerColor;
-}
-
-export function rgba({ r, g, b, a }) {
-    return `rgba(${r},${g},${b},${a})`;
 }

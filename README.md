@@ -1,15 +1,14 @@
 # GPT-4 Usage Quota Widget
 
-As a ChatGPT-Plus subscriber, it can be challenging to track your usage quota. This
-'request timeline' widget demonstrates a simple way to represent your recent usage
-visibly on a timeline.
+It can be challenging for ChatGPT-Plus subscribers to track their usage relative to
+their quota. This 'request timeline' widget demonstrates a simple way to visually
+represent a user's recent usage.
 
-Using the quota of 25 requests in 3 hours (as of March 26, 2023) as an example, the
-timeline shows when requests were made during the interval of concern. For the sake
-of demonstration, you can test its behavior by deleting individual requests below,
-or by adding new ones&mdash;just hit the 'submit' button.
+For the sake of demonstration, you can test its behavior by deleting individual
+requests below, or by adding new ones&mdash;just hit the 'submit' button.
 
-The circles representing the requests will change color from translucent green to
-opaque red as you approach the quota, making it easy to gauge your usage.
+The circles representing the requests will change color from green to red as the
+user approaches their quota, providing intuitive visual feedback as they approach
+their limit.
 
-Live demo at <https://gpt4widget.gebrandon.com>.
+See a live demo at <https://gpt4widget.gebrandon.com>.

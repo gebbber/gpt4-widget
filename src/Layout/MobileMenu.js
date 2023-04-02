@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { BarsIcon, XIcon } from '../assets/icons';
 
-import MenuIcon from '../assets/MenuIcon';
-import MenuContents from '../NavContents';
+import NavContents from '../content/NavContents';
 
 function MobileMenuButton() {
     const [open, setOpen] = useState(false);
@@ -13,6 +13,7 @@ function MobileMenuButton() {
         'rounded p-0.5',
         'hover:bg-neutral-500/20',
     ].join(' ');
+
     return (
         <>
             <button onClick={onClick} className={classes}>
@@ -33,6 +34,11 @@ function MobileMenuButton() {
 
 export default MobileMenuButton;
 
+function MenuIcon({ open, ...props }) {
+    if (open) return <XIcon {...props} />;
+    return <BarsIcon {...props} />;
+}
+
 export function MobileMenuPanelTarget() {
     return <div id="mobile-portal-target" className="dark bg-neutral-800 text-white md:hidden" />;
 }
@@ -48,7 +54,7 @@ function Panel() {
     ].join(' ');
     return (
         <div className={classes}>
-            <MenuContents />
+            <NavContents />
         </div>
     );
 }
@@ -58,7 +64,7 @@ function PortalInject({ target, children }) {
 
     useEffect(() => {
         setFound(document.querySelector(target));
-    }, []);
+    }, [target]);
 
     if (!found) return null;
 

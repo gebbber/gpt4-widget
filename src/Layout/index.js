@@ -6,7 +6,7 @@ import MainView from './MainView';
 
 function Layout({ title, children }) {
     return (
-        <Background pattern gradient className="text-neutral-800">
+        <Background pattern gradient className="text-neutral-800 dark:text-neutral-100">
             <Nav title={title} />
             <MobileMenuPanelTarget />
             <MainView>{children}</MainView>

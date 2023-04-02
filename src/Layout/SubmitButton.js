@@ -1,8 +1,4 @@
-import useWidgetData from '../Widget/useWidgetData';
-
-function SubmitButton({}) {
-    const { makeNewRequest } = useWidgetData();
-
+function SubmitButton() {
     const classes = [
         'absolute',
         'bottom-1.5 md:bottom-2.5',
@@ -13,7 +9,7 @@ function SubmitButton({}) {
         'disabled:hover:bg-transparent dark:disabled:hover:bg-transparent',
     ].join(' ');
     return (
-        <button className={classes} onClick={onClick}>
+        <button className={classes}>
             <svg
                 stroke="currentColor"
                 fill="none"
@@ -30,11 +26,6 @@ function SubmitButton({}) {
             </svg>
         </button>
     );
-    function onClick(ev) {
-        ev.preventDefault();
-
-        makeNewRequest();
-    }
 }
 
 export default SubmitButton;

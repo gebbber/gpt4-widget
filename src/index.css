@@ -22,3 +22,7 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #000000aa;
 }
+
+code {
+    @apply bg-teal-600/20 dark:bg-teal-300/20;
+}

@@ -2,25 +2,28 @@ import { useEffect, useState } from 'react';
 
 const START_DELAY = 1000;
 const INTER_CHAR = 100;
-const CHOPPINESS = 0.25; // 0 (smooth) to 1 (choppy) typing; >1.0 seems to work too
+const CHOPPINESS = 0.25; // 0 to 1+
 const END_DELAY = 1000;
 
-function useTypingAnimation(children, notAnimated) {
+function useTypingAnimation(children) {
     const title = (children || '').toString();
     const [typing, setTyping] = useState(false);
     const [contents, setContents] = useState(''); // start with useState(title) to only re-type when updated after mounting
 
     useEffect(() => {
-        if (!title) return;
-        if (notAnimated) return setContents(title);
         setContents('');
+        if (!title) return;
         setTyping(true);
         setTimeout(() => {
             const p = setInterval(() => {
                 const keystrokeDelay = Math.random() * CHOPPINESS * INTER_CHAR;
                 setTimeout(() => {
                     setContents(contents => {
-                        if (contents === title) return clearInterval(p), endTyping(), title;
+                        if (contents === title) {
+                            clearInterval(p);
+                            endTyping();
+                            return title;
+                        }
                         if (contents.length >= title.length) return '';
                         if (contents !== title.slice(0, contents.length)) return '';
                         return title.slice(0, contents.length + 1);
@@ -32,7 +35,7 @@ function useTypingAnimation(children, notAnimated) {
         function endTyping() {
             setTimeout(() => setTyping(false), END_DELAY);
         }
-    }, [title, notAnimated]);
+    }, [title]);
 
     return (
         <>

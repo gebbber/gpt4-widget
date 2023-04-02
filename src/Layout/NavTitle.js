@@ -1,7 +1,7 @@
 import useTypingAnimation from '../hooks/useTypingAnimation';
 
-function NavTitle({ children, animated }) {
-    const contents = useTypingAnimation(children, !animated);
+function NavTitle({ children }) {
+    const contents = useTypingAnimation(children);
 
     const classes = ['px-1 font-medium'].join(' ');
     return <div className={classes}>{contents}</div>;

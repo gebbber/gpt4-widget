@@ -11,7 +11,7 @@ function MainView({ children }) {
     return (
         <div className={classes}>
             <main className="grow flex flex-col justify-start px-2 py-4">
-                <div className="md:max-w-2xl mx-auto flex flex-col gap-2">{children}</div>
+                <div className="w-full md:max-w-2xl mx-auto flex flex-col gap-2">{children}</div>
             </main>
             <InputArea />
         </div>
