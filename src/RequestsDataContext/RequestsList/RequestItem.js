@@ -7,8 +7,8 @@ function RequestItem({ time, showCount }) {
     const { clearRequest } = useRequests();
     return (
         <li className="px-2 py-0.5 border border-neutral-500/30 rounded-md flex flex-row justify-between items-center shadow-sm">
-            <div>
-                {time.toLocaleString()}
+            <div className="flex flex-col sm:flex-row">
+                <span>{time.toLocaleString()}</span>
                 {showCount && <Count time={time} />}
             </div>
             <button
