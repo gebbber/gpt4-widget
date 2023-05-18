@@ -11,4 +11,4 @@ The circles representing the requests will change color from green to red as the
 user approaches their quota, providing intuitive visual feedback as they approach
 their limit.
 
-See a live demo at <https://gpt4widget.gebrandon.com>.
+See a live demo at <https://gebbber.github.io/gpt4widget>.

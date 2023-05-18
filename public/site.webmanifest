@@ -1,5 +1,5 @@
 {
-    "name": "GPT-4 Quota Widget Demo (gebrandon.com)",
+    "name": "GPT-4 Quota Widget Demo",
     "short_name": "GPT-4 Widget Demo",
     "icons": [
         { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
